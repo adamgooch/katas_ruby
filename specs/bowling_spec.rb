@@ -78,6 +78,56 @@ describe Bowling do
          @bowling.get_score("82X-X-9146X-37X-X-91X").should == 212
       end
 
-   end
+      # no marks until last frame which contains a strike
+      it "returns 98 when given the frames: '815236814563729081X72'" do
+         @bowling.get_score("815236814563729081X72").should == 98
+      end
 
+      # no marks until last frame which contains 2 strikes
+      it "returns 107 when given the frames: '815236814563729081XX8'" do
+         @bowling.get_score("815236814563729081XX8").should == 107
+      end
+
+      # no marks until last frame which contains 3 strikes
+      it "returns 109 when given the frames: '815236814563729081XXX'" do
+         @bowling.get_score("815236814563729081XXX").should == 109
+      end
+      
+      # no marks until the last 2 frames: spare strike
+      it "returns 120 when given the frames: '815236814563729082XXX'" do
+         @bowling.get_score("815236814563729082XXX").should == 120
+      end
+
+      # no marks until the last 2 frames: strike strike
+      it "returns 130 when given the frames: '8152368145637290X-XXX'" do
+         @bowling.get_score("8152368145637290X-XXX").should == 130
+      end
+
+      # no marks until the last 3 frames: strike strike strike
+      it "returns 151 when given the frames: '81523681456372X-X-XXX'" do
+         @bowling.get_score("81523681456372X-X-XXX").should == 151
+      end
+
+      # marks all over
+      it "returns 181 when given the frames: 'X-5536X-X-467282X-X91'" do
+         @bowling.get_score("X-5536X-X-467282X-X91").should == 181
+      end
+
+      # marks all over
+      it "returns 180 when given the frames: 'X-5536X-X-4672X-82XX8'" do
+         @bowling.get_score("X-5536X-X-4672X-82XX8").should == 180
+      end
+
+      # marks all over
+      it "returns 180 when given the frames: 'X-5536X-X-4672X-82XX8'" do
+         @bowling.get_score("X-5536X-X-4672X-82XX8").should == 180
+      end
+
+      # perfect game
+      it "returns 300 when given the frames: 'X-X-X-X-X-X-X-X-X-XXX'" do
+         @bowling.get_score("X-X-X-X-X-X-X-X-X-XXX").should == 300
+      end
+
+
+   end
 end

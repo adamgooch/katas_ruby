@@ -31,22 +31,35 @@ class Bowling
          else
             multiplier = 1
          end
+         if roll >= 20
+            multiplier = 1
+         end
 
          # check the strike counts and determine multiplier
-         if strike_count == 2 || strike_count == 1 
+         if strike_count == 1
             multiplier = 2
+            if roll == 20
+               multiplier = 1
+            end
+         elsif strike_count == 2 
+            multiplier = 2
+            if roll == 19
+               multiplier = 1
+            end
          elsif strike_count == 3
             strike_count -= 1
             multiplier = 3
+            if roll == 19
+               multiplier = 2
+            elsif roll == 20
+               multiplier = 1
+            end
          end
 
          if strike_count > 0
             strike_count -= 1
          end
 
-         if roll >= 20
-            multiplier = 1
-         end
       end
       score
    end
