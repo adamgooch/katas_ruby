@@ -24,6 +24,22 @@ describe Prime_Factors do
       it "returns [2] given 2" do
          @primeFactors.get_factors(2).should == [2]
       end
+      
+      it "returns [3] given 3" do
+         @primeFactors.get_factors(3).should == [3]
+      end
+
+      it "returns [2,2] given 4" do
+         @primeFactors.get_factors(4).should == [2,2]
+      end
+
+      it "returns [5] given 5" do
+         @primeFactors.get_factors(5).should == [5]
+      end
+
+      it "returns [2,3] given 6" do
+         @primeFactors.get_factors(5).should == [2,3]
+      end
 
    end
 end
