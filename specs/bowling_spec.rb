@@ -57,6 +57,27 @@ describe Bowling do
       it "returns 200 when given the frames: 'X-X-X-X-X-7190X-X-09'" do
          @bowling.get_score("X-X-X-X-X-7190X-X-09").should == 200
       end
+
+      # lots of strike and 1 spare but none in the 10th
+      it "returns 224 when given the frames: 'X-X-X-X-X-7391X-X-09'" do
+         @bowling.get_score("X-X-X-X-X-7391X-X-09").should == 224
+      end
+
+      # no marks save a spare in the 10th frame
+      it "returns 80 when given the frames: '523442136280903544915'" do
+         @bowling.get_score("523442136280903544915").should == 80
+      end
+
+      # lots of mixed marks including a spare in the 10th
+      it "returns 197 when given the frames: '52X-X-9146X-37X-X-918'" do
+         @bowling.get_score("52X-X-9146X-37X-X-918").should == 197
+      end
+
+      # lots of mixed marks including a spare followed by a strike in 10th
+      it "returns 212 when given the frames: '82X-X-9146X-37X-X-91X'" do
+         @bowling.get_score("82X-X-9146X-37X-X-91X").should == 212
+      end
+
    end
 
 end

@@ -43,6 +43,10 @@ class Bowling
          if strike_count > 0
             strike_count -= 1
          end
+
+         if roll >= 20
+            multiplier = 1
+         end
       end
       score
    end
