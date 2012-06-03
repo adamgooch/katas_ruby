@@ -6,7 +6,7 @@ class Prime_Factors
          for i in 2..number
             if number % i == 0
                factors << i
-               number -= i
+               number /= i
             end
          end
       end

@@ -38,7 +38,19 @@ describe Prime_Factors do
       end
 
       it "returns [2,3] given 6" do
-         @primeFactors.get_factors(5).should == [2,3]
+         @primeFactors.get_factors(6).should == [2,3]
+      end
+
+      it "returns [7] given 7" do
+         @primeFactors.get_factors(7).should == [7]
+      end
+
+      it "returns [2,2,2] given 8" do
+         @primeFactors.get_factors(8).should == [2,2,2]
+      end
+
+      it "returns [3,3] given 9" do
+         @primeFactors.get_factors(9).should == [3,3]
       end
 
    end
