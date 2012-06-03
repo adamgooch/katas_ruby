@@ -53,5 +53,13 @@ describe Prime_Factors do
          @primeFactors.get_factors(9).should == [3,3]
       end
 
+      it "returns [2,5] given 10" do
+         @primeFactors.get_factors(10).should == [2,5]
+      end
+
+      it "returns [11] given 11" do
+         @primeFactors.get_factors(11).should == [11]
+      end
+
    end
 end

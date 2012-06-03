@@ -7,6 +7,7 @@ class Prime_Factors
             if number % i == 0
                factors << i
                number /= i
+               break
             end
          end
       end
