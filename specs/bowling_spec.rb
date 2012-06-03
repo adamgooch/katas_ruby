@@ -37,6 +37,26 @@ describe Bowling do
       it "returns 74 when given the frames: 'X-415390107133238009'" do
          @bowling.get_score("X-415390107133238009").should == 74
       end
+
+      # first and second frames have strikes
+      it "returns 97 when given the frames: 'X-X-5390107133238009'" do
+         @bowling.get_score("X-X-5390107133238009").should == 97
+      end
+
+      # first, second and third frame have strikes
+      it "returns 124 when given the frames: 'X-X-X-90107133238009'" do
+         @bowling.get_score("X-X-X-90107133238009").should == 124
+      end
+
+      # lots of strikes but not in the 10th frame
+      it "returns 191 when given the frames: 'X-X-X-X-X-71X-23X-09'" do
+         @bowling.get_score("X-X-X-X-X-71X-23X-09").should == 191
+      end
+
+      # another test with lots of strikes but none in the 10th
+      it "returns 200 when given the frames: 'X-X-X-X-X-7190X-X-09'" do
+         @bowling.get_score("X-X-X-X-X-7190X-X-09").should == 200
+      end
    end
 
 end
