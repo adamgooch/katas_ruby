@@ -33,7 +33,10 @@ describe Bowling do
          @bowling.get_score("14824272735362645543").should == 101
       end
 
-
+      # first frame has strike
+      it "returns 74 when given the frames: 'X-415390107133238009'" do
+         @bowling.get_score("X-415390107133238009").should == 74
+      end
    end
 
 end
