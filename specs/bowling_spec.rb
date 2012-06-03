@@ -12,4 +12,10 @@ describe Bowling do
       end
    end
 
+   describe "get_score" do
+      it "returns 63 when given the frames: '31415390107133238009'" do
+         @bowling.get_score("31415390107133238009").should == 63
+      end
+   end
+
 end
