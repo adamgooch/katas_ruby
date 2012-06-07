@@ -42,9 +42,9 @@ describe Mars_Rover do
          @rover.facing.should == 's'
       end
 
-      it "is at coordinate 1,0 when given the f command" do
+      it "is at coordinate 0,1 when given the f command" do
          @rover.move('f')
-         @rover.coordinates.should == '1,0'
+         @rover.coordinates.should == '0,1'
       end
 
       it "is at coordinate 0,0 when given the fb command" do
@@ -52,14 +52,19 @@ describe Mars_Rover do
          @rover.coordinates.should == '0,0'
       end
 
-      it "is at coordinate 5,4 when given the frflfrflfrflfrflf command" do
+      it "is at coordinate 4,5 when given the frflfrflfrflfrflf command" do
          @rover.move('frflfrflfrflfrflf')
-         @rover.coordinates.should == '5,4'
+         @rover.coordinates.should == '4,5'
       end
 
-      it "is at coordinate 0,0 when given the bbbbb command" do
+      it "is at coordinate 0,16 when given the bbbbb command" do
          @rover.move('bbbbb')
-         @rover.coordinates.should == '0,0'
+         @rover.coordinates.should == '0,16'
+      end
+
+      it "is at coordinate 0,1 when given the ffffffffffffffffffffff command" do
+         @rover.move('ffffffffffffffffffffff')
+         @rover.coordinates.should == '0,1'
       end
 
    end

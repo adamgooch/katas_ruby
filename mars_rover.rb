@@ -52,37 +52,39 @@ class Mars_Rover
          when 'f'
             case @direction
             when 1
-               @x_coordinate += 1
-            when 2
                @y_coordinate += 1
+            when 2
+               @x_coordinate += 1
             when 3
-               @x_coodinate -= 1
+               @y_coodinate -= 1
             else
-               @y_coordinate -= 1
+               @x_coordinate -= 1
             end
          when 'b'
             case @direction
             when 1
-               @x_coordinate -= 1
-            when 2
                @y_coordinate -= 1
+            when 2
+               @x_coordinate -= 1
             when 3
-               @x_coodinate += 1
+               @y_coodinate += 1
             else
-               @y_coordinate += 1
+               @x_coordinate += 1
             end
          end
-         detect_obstacle
+         wrap_around_planet
       end
    end
 
-   def detect_obstacle
+   def wrap_around_planet
       if @x_coordinate < 0
-         @x_coordinate = 0
-         puts "Hit wall"
-      elsif @x_coordinate > @grid_width
          @x_coordinate = @grid_width
-         puts "Hit wall"
+      elsif @x_coordinate > @grid_width
+         @x_coordinate = 0
+      elsif @y_coordinate < 0
+         @y_coordinate = @grid_height
+      elsif @y_coordinate > @grid_height
+         @y_coordinate = 0
       end
    end
 
