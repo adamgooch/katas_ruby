@@ -42,5 +42,15 @@ describe Mars_Rover do
          @rover.facing.should == 's'
       end
 
+      it "is at coordinate 1,0 when given the f command" do
+         @rover.move('f')
+         @rover.coordinates.should == '1,0'
+      end
+
+      it "is at coordinate 0,0 when given the fb command" do
+         @rover.move('fb')
+         @rover.coordinates.should == '0,0'
+      end
+
    end
 end

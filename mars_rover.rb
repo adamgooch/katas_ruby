@@ -30,6 +30,10 @@ class Mars_Rover
       @facing
    end
 
+   def coordinates
+      @x_coordinate.to_s() + ',' + @y_coordinate.to_s()
+   end
+
    def move instructions
       instructions.split("").each do |i|
          case i
@@ -42,6 +46,17 @@ class Mars_Rover
             @direction -= 1
             if @direction < 1
                @direction = 4
+            end
+         when 'f'
+            case @direction
+            when 1
+               @x_coordinate += 1
+            when 2
+               @y_coordinate += 1
+            when 3
+               @x_coodinate -= 1
+            else
+               @y_coordinate -= 1
             end
          end
       end
