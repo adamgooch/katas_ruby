@@ -52,5 +52,15 @@ describe Mars_Rover do
          @rover.coordinates.should == '0,0'
       end
 
+      it "is at coordinate 5,4 when given the frflfrflfrflfrflf command" do
+         @rover.move('frflfrflfrflfrflf')
+         @rover.coordinates.should == '5,4'
+      end
+
+      it "is at coordinate 0,0 when given the bbbbb command" do
+         @rover.move('bbbbb')
+         @rover.coordinates.should == '0,0'
+      end
+
    end
 end

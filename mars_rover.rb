@@ -4,6 +4,8 @@ class Mars_Rover
       @x_coordinate = x
       @y_coordinate = y
       @facing = facing
+      @grid_width = 20
+      @grid_height = 20
       case @facing
       when 'n'
          @direction = 1
@@ -58,7 +60,29 @@ class Mars_Rover
             else
                @y_coordinate -= 1
             end
+         when 'b'
+            case @direction
+            when 1
+               @x_coordinate -= 1
+            when 2
+               @y_coordinate -= 1
+            when 3
+               @x_coodinate += 1
+            else
+               @y_coordinate += 1
+            end
          end
+         detect_obstacle
+      end
+   end
+
+   def detect_obstacle
+      if @x_coordinate < 0
+         @x_coordinate = 0
+         puts "Hit wall"
+      elsif @x_coordinate > @grid_width
+         @x_coordinate = @grid_width
+         puts "Hit wall"
       end
    end
 
